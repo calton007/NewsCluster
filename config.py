@@ -31,5 +31,9 @@ t2v_doc2vec_negative = 5
 t2v_doc2vec_workers = 4
 t2v_doc2vec_epochs = 20
 
-dbscan_eps = 4
-dbscan_min_samples = 1
+
+# Cluster 相关参数
+cluster_vec_path = "./data/doc2vec_vectors.pkl"
+
+cluster_dbscan_eps = 4
+cluster_dbscan_min_samples = 1
