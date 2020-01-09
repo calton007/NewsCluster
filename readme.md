@@ -4,7 +4,7 @@
 
 # 协作说明
 
-请保持 DataLoader.py、Text2Vector.py、Cluster.py、EventExtractor.py 这四个文件尽量简洁。不要在这些文件里实现具体算法。在其他地方实现，在这些文件中 import 后调用。比如，EventExtractor.py 是对聚类结果提取事件信息，目前实现了一个 ToyExtractor， 其具体实现在 Extractor 文件下，EventExtractor.py 只是调用该文件。
+请保持 DataLoader.py、Text2Vector.py、Cluster.py、EventExtractor.py 这四个文件尽量简洁。不要在这些文件里实现具体算法。在其他地方实现，在这些文件中 import 后调用。比如，EventExtractor.py 是对聚类结果提取事件信息，目前实现了一个 ToyExtractor， 其具体实现在 Extractor 文件夹下，EventExtractor.py 只是调用该文件。
 
 # 数据库
 
