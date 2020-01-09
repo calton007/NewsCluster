@@ -35,16 +35,18 @@ class EventExtractor():
         '''  
         cur = self.connector.cursor()
         count = cur.execute(sql)
+        print(count)
         if method == "toy":
             extractor = ToyExtractor()
         else:
             # to do 
             pass
         for _ in range(count):
-            label, newsid= cur.fetchone()
-            title, keyWord, abstract, time, content = extractor.extract(label, newsid)
+            # print(cur.fetchone())
+            label, newsid = cur.fetchone()
+            print(label, newsid)
+            title, keyWord, abstract, time, content = extractor.extract(self.connector, label, newsid.split(" "))
             self.update_event(label, title=title, keyWord=keyWord, time=time, abstract=abstract, content=content)
-            # self.toy_extractor(label, newsid.split(" "))
   
 
     def update_event(self, label, title=None, keyWord=None, time=None, abstract=None, content=None):
