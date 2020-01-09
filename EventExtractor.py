@@ -13,9 +13,9 @@ from Extractor.ToyExtractor import ToyExtractor
 
 class EventExtractor():
 
-    def __init__(self):
+    def __init__(self, method="toy"):
         self.get_connector()
-        self.extract_event()
+        self.extract_event(method)
 
 
     def get_connector(self, 
@@ -27,7 +27,7 @@ class EventExtractor():
         self.connector = pymysql.connect(host=host, user=user, port=port, passwd=passwd, db=db, charset='utf8')
 
 
-    def extract_event(self, sql = config.ee_sql):
+    def extract_event(self, method="toy", sql = config.ee_sql):
         '''
         @msg: 提取事件详细信息。从数据库中读取事件的label和newsid字段，然后调用extractor提取事件的具体信息
         @param {str} sql: 从event表中 select label 和 newsid 字段
@@ -35,7 +35,11 @@ class EventExtractor():
         '''  
         cur = self.connector.cursor()
         count = cur.execute(sql)
-        extractor = ToyExtractor()
+        if method == "toy":
+            extractor = ToyExtractor()
+        else:
+            # to do 
+            pass
         for _ in range(count):
             label, newsid= cur.fetchone()
             title, keyWord, abstract, time, content = extractor.extract(label, newsid)
@@ -64,7 +68,7 @@ class EventExtractor():
 
         sql = sql[:-2]
         sql += " where label='" + label + "';" 
-        print("update sql: ", sql)
+        # print("update sql: ", sql)
 
         cur.execute(sql)
         self.connector.commit()
