@@ -41,8 +41,9 @@
 ### 事件信息表(event)
 
 表结构：
-| Field    | Type          | Null | Key | Default | Extra |
-| ---    | ---          | --- | --- | ---| ---|
+
+| Field    | Type | Null | Key | Default | Extra |
+| --- |  --- |  --- |  --- |  --- |  --- |
 | label    | varchar(20)   | NO   | PRI | <null>  |       |
 | newsid   | varchar(2000) | NO   |     | <null>  |       |
 | title    | varchar(1000) | YES |     | <null>  |       |
