@@ -14,18 +14,22 @@ db_port=33306
 db_passwd='123456'
 db_db='news4primer'
 
+
 # DataLoader相关参数
 # 数据读取sql
 dl_read_data_sql = "select news_id, content from newsapi where date_format(publishedAt, '%Y-%m-%d') between '2019-12-17' and '2019-12-18';"
 
 
-doc2vec_min_count = 2
-doc2vec_window = 3
-doc2vec_size = 100
-doc2vec_sample = 1e-3
-doc2vec_negative = 5
-doc2vec_workers = 4
-doc2vec_epochs = 20
+# Text2Vector 相关参数
+t2v_tokenizer_path = "./data/tokenizer_result.pkl"
+
+t2v_doc2vec_min_count = 2
+t2v_doc2vec_window = 3
+t2v_doc2vec_size = 100
+t2v_doc2vec_sample = 1e-3
+t2v_doc2vec_negative = 5
+t2v_doc2vec_workers = 4
+t2v_doc2vec_epochs = 20
 
 dbscan_eps = 4
 dbscan_min_samples = 1
