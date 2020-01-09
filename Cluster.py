@@ -72,6 +72,8 @@ class Cluster():
 
     def KMeans(self):
         pass
-        
-cluster = Cluster()
-cluster.dbscan()
+
+
+if __name__ == "__main__":
+    cluster = Cluster()
+    cluster.dbscan()

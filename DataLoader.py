@@ -104,9 +104,8 @@ class DataLoader(object):
         return new_id_list, cut_content_list
 
 
-
-
-dl = DataLoader()
-id_list, content_list = dl.read_raw_data()
-id_list, cut_content_list = dl.tokenizer(id_list, content_list)
-print(len(id_list), id_list[1], cut_content_list[1])
+if __name__ == "__main__":
+    dl = DataLoader()
+    id_list, content_list = dl.read_raw_data()
+    id_list, cut_content_list = dl.tokenizer(id_list, content_list)
+    print(len(id_list), id_list[1], cut_content_list[1])

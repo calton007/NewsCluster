@@ -83,6 +83,6 @@ class Text2Vector(object):
         '''        
         pass
 
-
-t2v = Text2Vector()
-t2v.doc2vec()
+if __name__ == "__main__":
+    t2v = Text2Vector()
+    t2v.doc2vec()
