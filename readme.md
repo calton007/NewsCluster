@@ -2,6 +2,10 @@
 
 新闻事件挖掘。通过聚合公开的新闻数据，聚合描述相同事件的新闻并生成相关事件信息。
 
+# 协作说明
+
+请保持 DataLoader.py、Text2Vector.py、Cluster.py、EventExtractor.py 这四个文件尽量简洁。不要在这些文件里实现具体算法。在其他地方实现，在这些文件中 import 后调用。比如，EventExtractor.py 是对聚类结果提取事件信息，目前实现了一个 ToyExtractor， 其具体实现在 Extractor 文件下，EventExtractor.py 只是调用该文件。
+
 # 数据库
 
 目前有两个表结构：原始新闻表（news) 存储原始新闻信息，事件信息表（event）存储聚类分析后的事件信息。
