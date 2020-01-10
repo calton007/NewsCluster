@@ -248,3 +248,25 @@ class Compress():
 			self.connector.rollback()
 		finally:
 			cursor.close()
+
+def test():
+	extractor = Compress()
+	print("正在获取聚类结果")
+	clusters = extractor.get_all_clusters()
+	random.shuffle(clusters)
+	print("共获取 %d 个 Cluster" % len(clusters))
+	for i in range(len(clusters)):		
+		news_id = extractor.get_cluster_by_id(clusters[i])
+		print("Cluster %d 共 %d 篇新闻" % (i + 1, len(news_id)))
+		news = extractor.get_news(news_id)
+		if len(news) > 1:
+			temp = extractor.merge_sentence(news[0], news[0])
+		else:
+			temp = extractor.merge_sentence(news[0], news[1])
+		result = ""
+		for item in temp:
+			result += item
+			result += ' '
+		result = "# " + result
+		extractor.update_data(clusters[i], result)
+	extractor.disconnect()
