@@ -10,6 +10,7 @@
 import pymysql
 import config
 from Extractor.ToyExtractor import ToyExtractor
+from Extractor.Compress import Compress
 
 class EventExtractor():
 
@@ -37,6 +38,8 @@ class EventExtractor():
         count = cur.execute(sql)
         if method == "toy":
             extractor = ToyExtractor()
+        elif method =="compress":
+	        extractor = Compress()           
         else:
             # to do 
             pass
