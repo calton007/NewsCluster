@@ -3,8 +3,8 @@
 @version: 
 @Author: 徐飞飞
 @Date: 2019-12-31 09:55:26
-@LastEditors  : 徐飞飞
-@LastEditTime : 2019-12-31 16:59:01
+@LastEditors  : 李观波
+@LastEditTime : 2020-01-10 15:15:15
 '''
 
 import pymysql
